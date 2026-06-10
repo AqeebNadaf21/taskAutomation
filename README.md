@@ -1,44 +1,19 @@
 # taskAutomation
 CodeAlpha Python Programming Internship 
 
-import os
-import shutil
+File Automation Tool using Python
 
-def automate_files():
-    # Define source and destination
-    source_dir = "./my_photos"
-    dest_dir = "./images_folder"
-    # Ensure source exists
-    if not os.path.exists(source_dir):
-        raise FileNotFoundError(f"Source directory '{source_dir}' does not exist.")
+Developed a File Automation Tool using Python to automate the organization and management of image files within a file system. The application scans a specified source directory, identifies image files with a .jpg extension, and automatically moves them to a designated destination folder. This automation reduces manual effort, improves file organization, and enhances productivity when handling large collections of images.
 
-    # Create destination if it doesn't exist
-    if not os.path.exists(dest_dir):
-        os.makedirs(dest_dir)
+The project was implemented using Python's built-in os and shutil modules to perform file and directory operations efficiently. The program verifies the existence of the source directory, creates the destination folder if it does not already exist, and processes files through an automated workflow. It tracks the number of files moved and provides real-time feedback to the user regarding the status of the operation.
 
-    # Loop through files in source
-    moved_count = 0
-    for filename in os.listdir(source_dir):
-        if filename.lower().endswith(".jpg"):
-            shutil.move(os.path.join(source_dir, filename), dest_dir)
-            print(f"Moved: {filename}")
-            moved_count += 1
+Error-handling mechanisms were incorporated to ensure reliable execution. The application detects missing directories and handles unexpected runtime issues gracefully, preventing program crashes and improving user experience. The tool also generates informative messages to help users understand the outcome of each operation.
 
-    if moved_count == 0:
-        print("No .jpg files found to move.")
-    else:
-        print(f"Moved {moved_count} file(s) from {source_dir} to {dest_dir}.")
+Through this project, I gained hands-on experience in file system management, automation scripting, exception handling, and Python programming. The project strengthened my understanding of directory traversal, file manipulation, and process automation while demonstrating how repetitive tasks can be streamlined through software solutions.
 
-    return moved_count
+This tool can be further enhanced by supporting multiple file formats, implementing scheduled automation, adding a graphical user interface, and generating detailed activity logs for advanced file management.
 
-# Note: Ensure the 'my_photos' folder exists before running
+Technologies Used: Python, OS Module, Shutil Module
 
-
-if __name__ == "__main__":
-    try:
-        automate_files()
-    except FileNotFoundError as e:
-        print(e)
-    except Exception as e:
-        print(f"Error: {e}")
+Key Skills: Python Programming, File Handling, Automation, Directory Management, Exception Handling, Process Optimization, Problem Solving, Command-Line Application Development.
 
